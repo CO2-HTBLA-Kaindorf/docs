@@ -73,3 +73,12 @@ docker build --tag ghcr.io/co2-htlbla-kaindorf/co2backend:latest ./target
 ```
 `ghcr.io`: github docker repos, `co2-htlbla-kaindorf`: github-user oder github-organisation name
 
+3. Checken, ob das image da ist:
+
+```bash
+docker image ls 
+```
+![image](https://github.com/CO2-HTBLA-Kaindorf/utils/assets/16894982/3c8ba5d7-3478-409e-a908-0f830ace5e00)
+
+
+
