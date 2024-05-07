@@ -60,4 +60,17 @@ COPY *-runner.jar /opt/application/co2backend.jar
 WORKDIR /opt/application
 CMD [ "java", "-jar", "co2backend.jar" ]
 ```
+und erzeugen/holen uns dein Docker Container:
+1. kopieren des Docker File in den target Ordner
+
+```
+cp src/main/docker/Dockerfile target/
+```
+
+2. docker bauen lassen
+```
+docker build --tag ghcr.io/co2-htlbla-kaindorf/co2backend:latest ./target
+```
+`ghcr.io`: github docker repos
+`co2-htlbla-kaindorf`: github-user oder github-organisation name
 
