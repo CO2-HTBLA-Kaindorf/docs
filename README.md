@@ -96,7 +96,7 @@ docker login --username <gh-username> --password <privat-access-token> ghcr.io
 und push das oben erstellte image nach ghcr.io
 
 ```bash
-docker push ghcr.io/co2-htlbla-kaindorf/co2backend:latest
+docker push ghcr.io/<gh-username>/co2backend:latest
 ```
 
 
