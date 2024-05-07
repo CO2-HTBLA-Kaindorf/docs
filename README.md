@@ -35,12 +35,12 @@ Precondition - add this entry to the `application.properties`
 ```bash
 quarkus.package.type=uber-jar
 ```
-and build the package
+and build the package with
 
 ```
 ./mvnw clean package
 ```
+the result should this:
 
--> result
 ![image](https://github.com/CO2-HTBLA-Kaindorf/utils/assets/16894982/62bc2652-da70-4538-9781-b70f1f0828bd)
 
