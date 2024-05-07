@@ -71,6 +71,5 @@ cp src/main/docker/Dockerfile target/
 ```
 docker build --tag ghcr.io/co2-htlbla-kaindorf/co2backend:latest ./target
 ```
-`ghcr.io`: github docker repos
-`co2-htlbla-kaindorf`: github-user oder github-organisation name
+`ghcr.io`: github docker repos, `co2-htlbla-kaindorf`: github-user oder github-organisation name
 
