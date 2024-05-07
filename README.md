@@ -25,3 +25,19 @@ or
 ```shell script
 ./mvnw clean quarkus:dev
 ```
+
+## Create uber-jar
+
+https://blog.payara.fish/what-is-a-java-uber-jar
+
+How to create an uber-jar?
+Precondition - add this entry to the `application.properties`
+```bash
+quarkus.package.type=uber-jar
+```
+and build the package
+
+```
+./mvnw clean package
+```
+
