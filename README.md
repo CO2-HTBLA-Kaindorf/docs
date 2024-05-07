@@ -80,5 +80,20 @@ docker image ls
 ```
 ![image](https://github.com/CO2-HTBLA-Kaindorf/utils/assets/16894982/3c8ba5d7-3478-409e-a908-0f830ace5e00)
 
+# Push Docker image to ghcr.io
+
+Login mit den github Zugangsdaten bei ghcr.io
+
+```bash
+docker login ghrc.io
+```
+
+und push das oben erstellte image nach ghcr.io
+
+```bash
+docker push ghcr.io/co2-htlbla-kaindorf/co2backend:latest
+```
+
+
 
 
