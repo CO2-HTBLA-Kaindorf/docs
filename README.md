@@ -41,3 +41,6 @@ and build the package
 ./mvnw clean package
 ```
 
+-> result
+![image](https://github.com/CO2-HTBLA-Kaindorf/utils/assets/16894982/62bc2652-da70-4538-9781-b70f1f0828bd)
+
