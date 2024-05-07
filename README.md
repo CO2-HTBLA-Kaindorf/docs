@@ -44,3 +44,20 @@ the result should this:
 
 ![image](https://github.com/CO2-HTBLA-Kaindorf/utils/assets/16894982/62bc2652-da70-4538-9781-b70f1f0828bd)
 
+# Create a Docker Image
+
+1. Wir brauchen ein Docker-File
+2. Erzeugen wir ein Docker-File in:
+
+![image](https://github.com/CO2-HTBLA-Kaindorf/utils/assets/16894982/e1974ac0-a08a-4add-ba3e-443fc899dd88)
+
+mit folgenden Inhalt:
+```bash
+FROM eclipse-temurin:17-jre
+
+RUN mkdir -p /opt/application
+COPY *-runner.jar /opt/application/co2backend.jar
+WORKDIR /opt/application
+CMD [ "java", "-jar", "co2backend.jar" ]
+```
+
