@@ -1,4 +1,4 @@
-# utils
+# How to create a Quarkus Project 
 
 # Alles lokal auf dem eigenen Laptop
 
