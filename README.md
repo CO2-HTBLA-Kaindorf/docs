@@ -87,6 +87,11 @@ start docker mit
 docker run <id>
 ```
 
+Result
+
+![image](https://github.com/CO2-HTBLA-Kaindorf/docs/assets/16894982/418db90d-3f57-4f99-a99a-7b03f195720f)
+
+
 # Push Docker image to ghcr.io
 
 ## Erzeugen eines Access Tokens
