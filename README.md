@@ -193,8 +193,26 @@ networks:
     driver: bridge
 ```
 
+## Ausprobieren
 
+Zuerst das `postgres-create.sh` File ausführbar machen und dann ausführen
 
+```
+chmod 755 postgres-create.sh
+./postgres-create.sh
+```
+
+im Anschuss das Docker-Config-File ausführen. Es wird ein postgres Docker-Container am System installiert. Benutzername, Passwort, Port und Datenbankname sind dem `yaml` File zu entnehmen.
+Weiters wird ein zweiter Container für PG-Admin geholt.
+
+```
+cd db-postgres
+docker-compose -f docker-compose-postgres.yml up -d
+```
+
+### Ergebnis
+
+![image](https://github.com/CO2-HTBLA-Kaindorf/docs/assets/16894982/f7fd5745-c4e6-46b6-ace1-50310055beb9)
 
 
 
