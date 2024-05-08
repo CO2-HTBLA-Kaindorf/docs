@@ -139,7 +139,7 @@ cd ${DIR}
 cp ../src/main/docker/docker-compose-postgres.yml ./docker-compose-postgres.yml
 ```
 
-und in 
+und in `src/main/docker` das File `docker-compose-postgres.yaml`
 
 ![image](https://github.com/CO2-HTBLA-Kaindorf/docs/assets/16894982/9d8f867d-37a0-47ce-8f89-33e0b54bbd9f)
 
