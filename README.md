@@ -104,6 +104,97 @@ Result
 Nun haben wir unsere Quarkus Applikation im Docker-Container. Diesen Vorgang können wir mit jeder Application (auch Spring-Boot) erledigen.
 
 
+# Add Database to Quarkus
+
+Erweitern wir unser bestehendes Projekt um die Datenbank postgres. Hierzu ist es nötig das Projekt anzupassen:
+
+```
+./mvnw quarkus:add-extension -Dextensions='hibernate-orm-panache, jdbc-postgresql'
+```
+
+Folgende Ausgabe sollte erscheinen:
+
+![image](https://github.com/CO2-HTBLA-Kaindorf/docs/assets/16894982/d141c4bb-3e07-4c12-9742-668ec5ef9958)
+
+Es sollte die `pom.xmml` angepasst worden sein.
+
+## Start postgres in Docker
+
+Um die Datenbank zu starten benötigen wir einen Docker-Container. Dieser Container sollte aber nicht immer händisch gestartet werden müssen, sondern via einem Skript.
+Wir erstellen im Quarkusprojekt das File `postgres-create.sh` mit folgendem Inhalt:
+
+```
+#!/bin/bash
+set -e
+
+DIR="./db-postgres"
+if [ -d "$DIR" ]; then
+  echo "${DIR} already exists, the installation has exited ..."
+  exit 1
+fi
+
+echo "Installing postgres into ${DIR} ..."
+mkdir ${DIR}
+cd ${DIR}
+cp ../src/main/docker/docker-compose-postgres.yml ./docker-compose-postgres.yml
+```
+
+und in 
+
+![image](https://github.com/CO2-HTBLA-Kaindorf/docs/assets/16894982/9d8f867d-37a0-47ce-8f89-33e0b54bbd9f)
+
+mit folgenden Inhalt
+
+´´´
+version: '3.1'
+
+services:
+
+  db:
+    container_name: postgres
+    image: postgres:15.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db-postgres/db:/var/lib/postgresql/data
+      - ./db-postgres/import:/import
+    networks:
+      - postgres
+
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - 8090:8080
+
+# https://github.com/khezen/compose-postgres/blob/master/docker-compose.yml
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:6.20
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - ./db-postgres/pgadmin:/root/.pgadmin
+    ports:
+      - 8090:80
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+´´´
+
+
+
 
 
 
