@@ -145,7 +145,7 @@ und in
 
 mit folgenden Inhalt
 
-´´´
+```
 version: '3.1'
 
 services:
@@ -191,7 +191,7 @@ services:
 networks:
   postgres:
     driver: bridge
-´´´
+```
 
 
 
