@@ -1,6 +1,6 @@
 # Push Docker image to ghcr.io
 
-Damit wir unseren Docker-Container auch von einer anderen Stelle holen können, müssen wir ihn irgendwo hochladen. Hierzu beitet sich `ghcr.io` an.
+Damit wir unseren Docker-Container auch von einer anderen Stelle holen können, müssen wir ihn irgendwo hochladen. Hierzu bietet sich `ghcr.io` an.
 `ghcr.io` gehört zu github und benötigt somit keine weitere Anmeldung.
 
 Was wir brauchen ist ein Access Token
