@@ -1,0 +1,30 @@
+# Quarkus Application Server
+apiVersion: apps/v1
+kind: Deployment # das ist der wunsch
+metadata:
+  name: appsrv
+
+spec:
+  replicas: 1 # wieviele davon laufen, nur einer
+  selector:
+    matchLabels:
+      component: appsrv # name wird um hash erweitert - minikube
+  template:
+    metadata:
+      labels:
+        component: appsrv # component muss auch im Service passen
+    spec:
+      initContainers:
+        - name: check-db-ready
+          image: postgres:14
+          command: [ 'sh', '-c',
+            'until pg_isready -h postgres -p 5432; 
+          do echo waiting for database; sleep 2; done;' ]
+      containers: # was laufen soll
+        - name: appsrv # labels alle gleich
+          image: ghcr.io/schtl/backend:latest
+          # remove this when stable. Currently we do not take care of version numbers
+          imagePullPolicy: Always # immer wenn hochgefahren wird, wird ein neues image geholt
+          ports:
+            - containerPort: 80 # port vom quarkus
+          # command: ["tail", "-f", "/dev/null"] # überschreibt das CMD aus dem Dockerfile
