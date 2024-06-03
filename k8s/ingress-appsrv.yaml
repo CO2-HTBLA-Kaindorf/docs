@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: appsrv
+
+spec:
+  ports:
+    - port: 80 # mein port
+      targetPort: 80
+      protocol: TCP
+  selector: # key müssen passen
+    component: appsrv
