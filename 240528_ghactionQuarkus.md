@@ -7,7 +7,9 @@ mvn io.quarkus.platform:quarkus-maven-plugin:3.8.2:create
 ```
 
 
-# Build script for your project
+# Build script for your project./build.sh
+
+File `build.sh`:
 
 ```
 #!/usr/bin/env bash
